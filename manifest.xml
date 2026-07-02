@@ -13,7 +13,7 @@
   <DisplayName DefaultValue="Mailgröße Anzeige" />
   <Description DefaultValue="Zeigt die aktuelle Größe einer neuen E-Mail inkl. Anhänge live beim Verfassen an." />
   <IconUrl DefaultValue="https://brimosiegesmund.github.io/Outlook_mailsize-addin/src/icon-32.png" />
-  <HighResIconUrl DefaultValue="https://brimosiegesmund.github.io/Outlook_mailsize-addin/src/icon-80.png" />
+  <HighResolutionIconUrl DefaultValue="https://brimosiegesmund.github.io/Outlook_mailsize-addin/src/icon-80.png" />
   <SupportUrl DefaultValue="https://brimosiegesmund.github.io/Outlook_mailsize-addin/" />
 
   <AppDomains>
