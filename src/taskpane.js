@@ -50,13 +50,17 @@ function getBodySizeBytes() {
 
 function getAttachments() {
   return new Promise((resolve) => {
-    const item = Office.context.mailbox.item;
-    if (!item.attachments) {
-      resolve([]);
-      return;
-    }
-    // Im Compose-Modus liefert item.attachments direkt ein Array
-    resolve(item.attachments || []);
+    // Im Compose-Modus MUSS die asynchrone getAttachmentsAsync-Methode
+    // verwendet werden - die synchrone item.attachments-Eigenschaft
+    // liefert hier zuverlässig ein leeres Array.
+    Office.context.mailbox.item.getAttachmentsAsync((result) => {
+      if (result.status === Office.AsyncResultStatus.Succeeded) {
+        resolve(result.value || []);
+      } else {
+        console.error("Fehler beim Abrufen der Anhänge:", result.error);
+        resolve([]);
+      }
+    });
   });
 }
 
